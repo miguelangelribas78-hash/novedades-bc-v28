@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitud de Formación Personalizada - Business Central v28</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-grad-start: #5085a5;
+            --primary-grad-end: #314d6c;
+            --accent-color: #8fc1e3;
+            --background: #f5f7fb;
+            --card-bg: #ffffff;
+            --text-main: #2a3b50;
+            --text-muted: #62758d;
+            --border-color: #e2e8f0;
+            --shadow-3d: 0 15px 35px rgba(49, 77, 108, 0.08), 0 5px 15px rgba(0, 0, 0, 0.02);
+            --shadow-3d-hover: 0 25px 45px rgba(49, 77, 108, 0.15), 0 10px 20px rgba(0, 0, 0, 0.04);
+            --success: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 4rem;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-grad-start), var(--primary-grad-end));
+            color: white;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            box-shadow: 0 8px 24px rgba(49, 77, 108, 0.1);
+            position: relative;
+        }
+
+        .logo-img {
+            max-height: 180px; /* Tamaño del logo ampliado para darle mayor protagonismo */
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1.2rem 3rem; /* Acolchado aumentado para mayor presencia */
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-3d);
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.3rem;
+        }
+
+        header p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2.5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .form-card {
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-3d);
+            border: 1px solid var(--border-color);
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group label {
+            display: block;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-grad-end);
+        }
+
+        .input-group input[type="text"], .input-group input[type="email"] {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-group input[type="text"]:focus, .input-group input[type="email"]:focus {
+            border-color: var(--primary-grad-start);
+            box-shadow: 0 0 8px rgba(80, 133, 165, 0.15);
+        }
+
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            color: var(--primary-grad-end);
+            margin: 2rem 0 1rem;
+            border-bottom: 2px solid var(--background);
+            padding-bottom: 0.4rem;
+        }
+
+        .checkbox-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.8rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .checkbox-item {
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .checkbox-item:hover {
+            background: #f1f5f9;
+            transform: translateY(-2px);
+            border-color: var(--accent-color);
+        }
+
+        .checkbox-item.checked {
+            background: #f0fdf4;
+            border-color: var(--success);
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            margin-top: 0.25rem;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .checkbox-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .checkbox-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--primary-grad-end);
+        }
+
+        .checkbox-desc {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.1rem;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, var(--primary-grad-start), var(--primary-grad-end));
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 1.2rem;
+            font-size: 1.1rem;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            border-radius: 14px;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(49, 77, 108, 0.2);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(49, 77, 108, 0.3);
+            filter: brightness(1.05);
+        }
+
+        /* Disclaimer discreto en el pie */
+        .disclaimer {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            line-height: 1.5;
+        }
+
+        .disclaimer strong {
+            color: var(--primary-grad-end);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            text-decoration: none;
+            color: var(--primary-grad-start);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--primary-grad-end);
+        }
+
+        /* Botón de Soporte Flotante (AS) - Estilo Círculo */
+        .support-badge {
+            position: absolute;
+            top: 2.2rem;
+            right: 2rem;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .support-badge:hover {
+            background: white;
+            color: var(--primary-grad-end);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.25);
+        }
+
+        .support-badge .as-logo {
+            background: var(--accent-color);
+            color: var(--primary-grad-end);
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: 800;
+            font-size: 1.1rem;
+            box-shadow: inset 0 0 5px rgba(255,255,255,0.4);
+            flex-shrink: 0;
+        }
+
+        .support-text-container {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+            text-align: left;
+        }
+
+        .support-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .support-subtitle {
+            font-size: 0.7rem;
+            opacity: 0.8;
+        }
+
+        .support-badge:hover .support-subtitle {
+            color: var(--primary-grad-end);
+            opacity: 0.9;
+        }
+
+        /* Pie de página */
+        footer {
+            text-align: center;
+            padding: 3rem 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            background: white;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="logo_auba.png" alt="Auba" class="logo-img">
+        <h1>Solicitud de Formación</h1>
+        <p>Seleccione las novedades de su interés y le contactaremos para agendar la sesión.</p>
+        <!-- Enlace Soporte AS -->
+        <a href="mailto:support@aubadcs.com" class="support-badge" title="Contactar con Soporte">
+            <div class="as-logo">AS</div>
+            <div class="support-text-container">
+                <span class="support-title">Auba Soporte</span>
+                <span class="support-subtitle">Contáctenos</span>
+            </div>
+        </a>
+    </header>
+
+    <div class="container">
+        
+        <a href="index.html" class="back-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"></path>
+            </svg>
+            Volver a la guía interactiva
+        </a>
+
+        <div class="form-card">
+            <form id="training-form" onsubmit="sendTrainingEmail(event)">
+                
+                <div class="input-group">
+                    <label for="client-name">Nombre y Apellidos</label>
+                    <input type="text" id="client-name" required placeholder="Ej. Juan Pérez">
+                </div>
+
+                <div class="input-group">
+                    <label for="company-name">Empresa</label>
+                    <input type="text" id="company-name" required placeholder="Ej. Industrias ABC, S.L.">
+                </div>
+
+                <div class="input-group">
+                    <label for="client-email">Correo Electrónico de Contacto</label>
+                    <input type="email" id="client-email" required placeholder="Ej. juan.perez@empresa.com">
+                </div>
+
+                <!-- Listado completo de Novedades (22 temas elegibles) -->
+                <div class="section-title">Temas en los que le gustaría formarse</div>
+                
+                <div class="checkbox-container">
+                    <!-- Tema 1 -->
+                    <label class="checkbox-item" id="item-1">
+                        <input type="checkbox" name="novedades" value="Verifactu Integrado (España)" id="chk-1" onchange="toggleItemClass('item-1', this)">
+                        <div class="checkbox-info">
+                            <span class="checkbox-title">1. Modo Verifactu integrado en España (AEAT)</span>
+                            <span class="checkbox-desc">Firma digital, códigos QR y envío en tiempo real a Hacienda.</span>
+                        </div>
+                    </label>
+
+                    <!-- Tema 2 -->
+                    <label class="checkbox-item" id="item-2">
+                        <input type="checkbox" name="novedades" value="Módulo de Gestión de Gastos" id="chk-2" onchange="toggleItemClass('item-2', this)">
+                        <div class="checkbox-info">
+                            <span class="checkbox-title">2. Nuevo Módulo de Gestión de Gastos</span>
+                            <span class="checkbox-desc">Configuración de kilometraje, dietas y reembolsos.</span>
+                        </div>
+                    </label>
+
+                    <!-- Tema 3 -->
+                    <label class="checkbox-item" id="item-3">
+                        <input type="checkbox" name="novedades" value="Cálculo de Retenciones de IRPF" id="chk-3" onchange="toggleItemClass('item-3', this)">
+                        <div class="checkbox-info">
+                            <span class="checkbox-title">3. Cálculo de Retenciones de IRPF en compras</span>
+                            <span class="checkbox-desc">Cálculo automatizado en facturas de proveedores.</span>
+                        </div>
+                    </label>
+
+                    <!-- Tema 4 -->
+                    <label class="checkbox-item" id="item-4">
+                        <input type="checkbox" name="novedades" value="Impuestos para Plástico y Bebidas Azucaradas" id="chk-4" onchange="toggleItemClass('item-4', this)">
+                        <div class="checkbox-info">
+                            <span class="checkbox-title">4. Impuestos para Plástico y Azúcar (Localización ES)</span>
+                            <span class="checkbox-desc">Configuración contable de impuestos especiales.</span>
+                        </div>
+                    </label>
+
+                    <!-- Tema 5 -->
+                    <label class="checkbox-item" id="item-5">
+                        <input type="checkbox" name="novedades" value="Autofacturas de Compra (Self-billed)" id="chk-5" onchange="toggleItemClass('item-5', this)">
+                        <div class="checkbox-info">
+                            <span class="checkbox-title">5. Autofacturas de Compra</span>
+                            <span class="checkbox-desc">Emisión estándar de autofacturas de proveedores.</span>
+                        </div>
+                    </label>
+
+                    <!-- Tema 6 -->
+                    <label class="checkbox-item" id="item-6">
+                        <input type="checkbox" name="novedades" value="Integración con Shopify" id="chk-6" onchange="toggleItemClass('item-6', this)">
+                        <div class="checkbox-info">
+                            <span class="checkbox-title">6. Integración Avanzada con Shopify</span>
+                            <span class="checkbox-desc">Sincronización de colecciones y atributos personalizados.</span>
+                        </div>
+                    </label>
+
+                    <!-- Tema 7 -->
+                    <label class="checkbox-item" id="item-7">
+                        <input type="checkbox" name="novedades" value="Agente de Gastos (Expense Agent)" id="chk-7" onchange="toggleItemClass('item-7', this)">
+                        <div class="checkbox-info">
+                            <span class="checkbox-title">7. Agente de Gastos (Expense Agent)</span>
+                            <span class="checkbox-desc">IA Copilot para lectura automática de tickets de gastos.</span>
+                        </div>
+                    </label>
+
+                    <!-- Tema 8 -->
+                    <label class="checkbox-item" id="item-8">
+                        <input type="checkbox" name="novedades" value="Agente de Proveedores (Payables Agent)" id="chk-8" onchange="toggleItemClass('item-8', this)">
+                        <div class="checkbox-info">
+                            <span class="checkbox-title">8. Agente de Proveedores (Payables Agent)</span>
+                            <span class="checkbox-desc">IA Copilot para procesar correos con facturas de compras.</span>
+                        </div>
+                    </label>
+
+                    <!-- Tema 9 -->
+                    <label class="checkbox-item" id="item-9">
+                        <input type="checkbox" name="novedades" value="Bandeja Unificada de Tareas de Agentes" id="chk-9" onchange="toggleItemClass('item-9', this)">
+                        <div class="checkbox-info">
+                            <span class="checkbox-title">9. Panel y Bandeja Unificada de Agentes</span>
+                            <span class="checkbox-desc">Administración y revisión de tareas automáticas de IA.</span>
+                        </div>
+                    </label>
+
+                    <!-- Tema 10 -->
+                    <label class="checkbox-item" id="item-10">
+                        <input type="checkbox" name="novedades" value="KPIs e Insights de Producto con Copilot" id="chk-10" onchange="toggleItemClass('item-10', this)">
+                        <div class="checkbox-info">
+                            <span class="checkbox-title">10. KPIs e Insights de Producto con Copilot</span>
+                            <span class="checkbox-desc">Resúmenes automáticos inteligentes de stock y ventas.</span>
+                        </div>
+                    </label>
+
+                    <!-- Tema 11 -->
+                    <label class="checkbox-item" id="item-11">
+                        <input type="checkbox" name="novedades" value="Diseño de Agentes Personalizados" id="chk-11" onchange="toggleItemClass('item-11', this)">
+                        <div class="checkbox-info">
+                            <span class="checkbox-title">11. Diseño de Agentes Personalizados (Agent Designer)</span>
+                            <span class="checkbox-desc">Creación propia de flujos autónomos de IA.</span>
+                        </div>
+                    </label>
+
+                    <!-- Tema 12 -->
+                    <label class="checkbox-item" id="item-12">
+                        <input type="checkbox" name="novedades" value="Conexión de Agentes al Centro de Administración" id="chk-12" onchange="toggleItemClass('item-12', this)">
+                        <div class="checkbox-info">
+                            <span class="checkbox-title">12. Conexión de Agentes a Centro de Admin por MCP</span>
+                            <span class="checkbox-desc">Auditoría y control de seguridad en procesos de IA.</span>
+                        </div>
+                    </label>
+
+                    <!-- Tema 13 -->
+                    <label class="checkbox-item" id="item-13">
+                        <input type="checkbox" name="novedades" value="APIs de Seguridad y Auditoría" id="chk-13" onchange="toggleItemClass('item-13', this)">
+                        <div class="checkbox-info">
+                            <span class="checkbox-title">13. APIs de Seguridad y Auditoría</span>
+                            <span class="checkbox-desc">Análisis avanzado de permisos y flujos de aprobación.</span>
+                        </div>
+                    </label>
+
+                    <!-- Tema 14 -->
+                    <label class="checkbox-item" id="item-14">
+                        <input type="checkbox" name="novedades" value="Almacenamiento Externo de Adjuntos" id="chk-14" onchange="toggleItemClass('item-14', this)">
+                        <div class="checkbox-info">
+                            <span class="checkbox-title">14. Almacenamiento Externo de Archivos Adjuntos</span>
+                            <span class="checkbox-desc">Ahorro de espacio y costes en base de datos del tenant.</span>
+                        </div>
+                    </label>
+
+                    <!-- Tema 15 -->
+                    <label class="checkbox-item" id="item-15">
+                        <input type="checkbox" name="novedades" value="Informes de Balance y Diferimientos Rápidos" id="chk-15" onchange="toggleItemClass('item-15', this)">
+                        <div class="checkbox-info">
+                            <span class="checkbox-title">15. Optimización de Informes Financieros</span>
+                            <span class="checkbox-desc">Rendimiento en balance de comprobación y diferimientos.</span>
+                        </div>
+                    </label>
+
+                    <!-- Tema 16 -->
+                    <label class="checkbox-item" id="item-16">
+                        <input type="checkbox" name="novedades" value="Ciclo de Vida de Diseños de Informe" id="chk-16" onchange="toggleItemClass('item-16', this)">
+                        <div class="checkbox-info">
+                            <span class="checkbox-title">16. Ciclo de Vida de Diseños de Informe</span>
+                            <span class="checkbox-desc">Gobernanza de formatos activos, borrador y obsoletos.</span>
+                        </div>
+                    </label>
+
+                    <!-- Tema 17 -->
+                    <label class="checkbox-item" id="item-17">
+                        <input type="checkbox" name="novedades" value="Idioma Predeterminado por Empresa" id="chk-17" onchange="toggleItemClass('item-17', this)">
+                        <div class="checkbox-info">
+                            <span class="checkbox-title">17. Idioma Predeterminado de Documentos</span>
+                            <span class="checkbox-desc">Establecer el idioma de los documentos a nivel global.</span>
+                        </div>
+                    </label>
+
+                    <!-- Tema 18 -->
+                    <label class="checkbox-item" id="item-18">
+                        <input type="checkbox" name="novedades" value="Integración con Outlook" id="chk-18" onchange="toggleItemClass('item-18', this)">
+                        <div class="checkbox-info">
+                            <span class="checkbox-title">18. Nueva Integración de Contactos con Outlook</span>
+                            <span class="checkbox-desc">Guardar contactos directamente desde la bandeja de Outlook.</span>
+                        </div>
+                    </label>
+
+                    <!-- Tema 19 -->
+                    <label class="checkbox-item" id="item-19">
+                        <input type="checkbox" name="novedades" value="Migración Cloud desde SQL" id="chk-19" onchange="toggleItemClass('item-19', this)">
+                        <div class="checkbox-info">
+                            <span class="checkbox-title">19. Migración Cloud Directa de SQL</span>
+                            <span class="checkbox-desc">Gobernanza de la migración para orígenes de datos SQL Server.</span>
+                        </div>
+                    </label>
+
+                    <!-- Tema 20 -->
+                    <label class="checkbox-item" id="item-20">
+                        <input type="checkbox" name="novedades" value="Nueva Experiencia de Precios Obligatoria" id="chk-20" onchange="toggleItemClass('item-20', this)">
+                        <div class="checkbox-info">
+                            <span class="checkbox-title">20. Nueva Experiencia de Precios (Obligatorio)</span>
+                            <span class="checkbox-desc">Homologación y migración obligatoria al nuevo motor de precios.</span>
+                        </div>
+                    </label>
+
+                    <!-- Tema 21 -->
+                    <label class="checkbox-item" id="item-21">
+                        <input type="checkbox" name="novedades" value="Acceso MCP Server por Defecto" id="chk-21" onchange="toggleItemClass('item-21', this)">
+                        <div class="checkbox-info">
+                            <span class="checkbox-title">21. Acceso a Servidor MCP por Defecto (Obligatorio)</span>
+                            <span class="checkbox-desc">Habilitación obligatoria de la funcionalidad MCP.</span>
+                        </div>
+                    </label>
+
+                    <!-- Tema 22 -->
+                    <label class="checkbox-item" id="item-22">
+                        <input type="checkbox" name="novedades" value="Deprecación de Legacy Workflows" id="chk-22" onchange="toggleItemClass('item-22', this)">
+                        <div class="checkbox-info">
+                            <span class="checkbox-title">22. Retirada de Legacy Workflows y Motores de Correo antiguos</span>
+                            <span class="checkbox-desc">Migración al nuevo motor de emails y flujos de Power Automate.</span>
+                        </div>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    Enviar Solicitud de Formación
+                </button>
+
+                <!-- Pie del formulario discreto y elegante -->
+                <div class="disclaimer">
+                    * Nota informativa sobre la formación: Las sesiones tendrán una **duración máxima total de 30 minutos** y serán de carácter estrictamente informativo. <br>
+                    <strong>Aviso importante:</strong> Para garantizar la calidad y el tiempo máximo fijo, cuantos más temas seleccione usted, más resumidas y dinámicas deberán ser las explicaciones de cada punto.
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>© 2026 Auba Dynamic Consulting Solutions. Todos los derechos reservados.</p>
+        <p>Desarrollado y preparado con la documentación oficial del Partner Center de Microsoft.</p>
+    </footer>
+
+    <script>
+        // Función para cambiar de clase al marcar un checkbox
+        function toggleItemClass(itemId, checkbox) {
+            const item = document.getElementById(itemId);
+            if (checkbox.checked) {
+                item.classList.add("checked");
+            } else {
+                item.classList.remove("checked");
+            }
+        }
+
+        // Cargar temas pre-seleccionados por la URL
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const selectedTema = urlParams.get('tema');
+            
+            if (selectedTema) {
+                const chk = document.getElementById('chk-' + selectedTema);
+                if (chk) {
+                    chk.checked = true;
+                    toggleItemClass('item-' + selectedTema, chk);
+                    // Hacer scroll suave hacia el elemento pre-seleccionado
+                    document.getElementById('item-' + selectedTema).scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+        });
+
+        // Envío de correo a Soporte
+        function sendTrainingEmail(e) {
+            e.preventDefault();
+
+            const clientName = document.getElementById("client-name").value;
+            const companyName = document.getElementById("company-name").value;
+            const clientEmail = document.getElementById("client-email").value;
+
+            // Obtener checkboxes marcados
+            const checkedBoxes = document.querySelectorAll('input[name="novedades"]:checked');
+            const selectedNovedades = [];
+            
+            checkedBoxes.forEach((cb) => {
+                selectedNovedades.push(cb.value);
+            });
+
+            if (selectedNovedades.length === 0) {
+                alert("Por favor, seleccione al menos una novedad para la formación.");
+                return;
+            }
+
+            // Destinatario de soporte
+            const toEmail = "support@aubadcs.com";
+            
+            // Asunto
+            const subject = encodeURIComponent(`[Formación BC v28] Solicitud de ${clientName} - ${companyName}`);
+            
+            // Cuerpo del correo
+            let bodyContent = `Hola equipo de Soporte de Auba,\n\n`;
+            bodyContent += `Se ha recibido una solicitud de formación sobre las novedades de Business Central v28 (2026 Wave 1) a través de la guía interactiva.\n\n`;
+            bodyContent += `Detalles del Solicitante:\n`;
+            bodyContent += `-------------------------\n`;
+            bodyContent += `Nombre: ${clientName}\n`;
+            bodyContent += `Empresa: ${companyName}\n`;
+            bodyContent += `Correo: ${clientEmail}\n\n`;
+            bodyContent += `Temas seleccionados para la sesión (Máx. 30 min):\n`;
+            bodyContent += `-------------------------\n`;
+            
+            selectedNovedades.forEach((item, index) => {
+                bodyContent += `${index + 1}. ${item}\n`;
+            });
+            
+            bodyContent += `\n-------------------------\n`;
+            bodyContent += `Nota del cliente aceptada: Duración máxima fija de 30 minutos informativos en total.\n\n`;
+            bodyContent += `Por favor, pónganse en contacto con el cliente para agendar la reunión.\n\n`;
+            bodyContent += `Saludos,\n`;
+            bodyContent += `${clientName}`;
+
+            const mailtoUrl = `mailto:${toEmail}?subject=${subject}&body=${encodeURIComponent(bodyContent)}`;
+            
+            // Abrir cliente de correo
+            window.location.href = mailtoUrl;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novedades y Actualizaciones - Microsoft Dynamics 365 Business Central v28</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-grad-start: #5085a5;
+            --primary-grad-end: #314d6c;
+            --accent-color: #8fc1e3;
+            --background: #f5f7fb;
+            --card-bg: #ffffff;
+            --text-main: #2a3b50;
+            --text-muted: #62758d;
+            --border-color: #e2e8f0;
+            --shadow-3d: 0 15px 35px rgba(49, 77, 108, 0.08), 0 5px 15px rgba(0, 0, 0, 0.02);
+            --shadow-3d-hover: 0 25px 45px rgba(49, 77, 108, 0.15), 0 10px 20px rgba(0, 0, 0, 0.04);
+            --glow: 0 0 15px rgba(80, 133, 165, 0.2);
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Cabecera Premium */
+        header {
+            background: linear-gradient(135deg, var(--primary-grad-start), var(--primary-grad-end));
+            color: white;
+            padding: 2.5rem 2rem;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(49, 77, 108, 0.15);
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .logo-img {
+            max-height: 180px; /* Tamaño del logo ampliado para darle mayor protagonismo */
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1.2rem 3rem; /* Acolchado aumentado para mayor presencia */
+            border-radius: 20px;
+            box-shadow: var(--shadow-3d);
+            transition: transform 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.03) rotate(-1deg);
+        }
+
+        .header-text h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 0.4rem;
+            letter-spacing: -0.5px;
+        }
+
+        .header-text p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* Botón de Soporte Flotante (AS) - Modificado a Círculo y Ajustado */
+        .support-badge {
+            position: absolute;
+            top: 2.2rem;
+            right: 2rem;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .support-badge:hover {
+            background: white;
+            color: var(--primary-grad-end);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.25);
+        }
+
+        .support-badge .as-logo {
+            background: var(--accent-color);
+            color: var(--primary-grad-end);
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%; /* Círculo */
+            font-weight: 800;
+            font-size: 1.1rem;
+            box-shadow: inset 0 0 5px rgba(255,255,255,0.4);
+            flex-shrink: 0;
+        }
+
+        .support-text-container {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+            text-align: left;
+        }
+
+        .support-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .support-subtitle {
+            font-size: 0.7rem;
+            opacity: 0.8;
+        }
+
+        .support-badge:hover .support-subtitle {
+            color: var(--primary-grad-end);
+            opacity: 0.9;
+        }
+
+        /* Contenedor Principal */
+        main {
+            max-width: 1200px;
+            margin: 2.5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Navegación por Pestañas 3D */
+        .tabs-navigation {
+            display: flex;
+            justify-content: space-between;
+            background: #e9eff5;
+            padding: 0.5rem;
+            border-radius: 18px;
+            margin-bottom: 2.5rem;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.05);
+            gap: 0.5rem;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 1rem 1.2rem;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 14px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            text-align: center;
+        }
+
+        .tab-btn:hover {
+            color: var(--primary-grad-end);
+            background: rgba(255,255,255,0.5);
+        }
+
+        .tab-btn.active {
+            background: white;
+            color: var(--primary-grad-end);
+            box-shadow: 0 8px 20px rgba(49, 77, 108, 0.08), 0 1px 3px rgba(0,0,0,0.02);
+            transform: translateY(-2px);
+        }
+
+        /* Contenido de Pestañas */
+        .tab-content {
+            display: none;
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Grid de Novedades */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Tarjeta de Novedad 3D */
+        .news-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow-3d);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+        }
+
+        .news-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-grad-start), var(--accent-color));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: var(--shadow-3d-hover);
+            border-color: var(--accent-color);
+        }
+
+        .news-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.2rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .card-icon {
+            background: rgba(80, 133, 165, 0.08);
+            color: var(--primary-grad-start);
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .news-card:hover .card-icon {
+            background: var(--primary-grad-start);
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .card-title-area h3 {
+            font-size: 1.2rem;
+            color: var(--primary-grad-end);
+            margin-bottom: 0.2rem;
+            line-height: 1.3;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 6px;
+            text-transform: uppercase;
+        }
+
+        .badge-spain {
+            background: #fef3c7;
+            color: #d97706;
+            border: 1px solid #fde68a;
+        }
+
+        .badge-copilot {
+            background: #dbeafe;
+            color: #2563eb;
+            border: 1px solid #bfdbfe;
+        }
+
+        .badge-platform {
+            background: #e0f2fe;
+            color: #0369a1;
+            border: 1px solid #bae6fd;
+        }
+
+        .badge-mandatory {
+            background: #fee2e2;
+            color: #dc2626;
+            border: 1px solid #fca5a5;
+        }
+
+        .card-body p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-footer {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: auto;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.2rem;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 0.7rem 1rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.2s ease;
+        }
+
+        .btn-learn {
+            background: linear-gradient(135deg, var(--primary-grad-start), var(--primary-grad-end));
+            color: white;
+            border: none;
+            box-shadow: 0 4px 10px rgba(80, 133, 165, 0.15);
+        }
+
+        .btn-learn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(80, 133, 165, 0.3);
+            filter: brightness(1.05);
+        }
+
+        /* Simulador Interactivo Integrado */
+        .simulator-section {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: var(--shadow-3d);
+            border: 1px solid var(--border-color);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .simulator-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--background);
+            padding-bottom: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .simulator-title h2 {
+            font-size: 1.5rem;
+            color: var(--primary-grad-end);
+        }
+
+        .simulator-title p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .simulator-bc-window {
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .bc-nav-bar {
+            background: #0f172a;
+            color: white;
+            padding: 0.8rem 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .bc-logo-text {
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        .bc-content-area {
+            padding: 2rem;
+            min-height: 320px;
+        }
+
+        /* Simulación de Configuración de Verifactu */
+        .sim-setup-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: var(--shadow-3d);
+        }
+
+        .sim-setup-header {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            color: var(--primary-grad-end);
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .sim-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        /* Interruptor de Deslizamiento (Switch) */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 46px;
+            height: 24px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #cbd5e1;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--success);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(22px);
+        }
+
+        /* Vista de Factura Simulada */
+        .invoice-preview-container {
+            display: none;
+            animation: fadeIn 0.4s ease forwards;
+            background: white;
+            border: 1px dashed var(--primary-grad-start);
+            border-radius: 8px;
+            padding: 1.5rem;
+            max-width: 500px;
+            margin: 1.5rem auto 0;
+        }
+
+        .invoice-title {
+            text-align: center;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-grad-end);
+        }
+
+        .invoice-details {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .invoice-total {
+            text-align: right;
+            font-weight: 700;
+            border-top: 2px solid var(--border-color);
+            padding-top: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .verifactu-stamp {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: #ecfdf5;
+            border: 1px solid #a7f3d0;
+            padding: 0.8rem;
+            border-radius: 8px;
+        }
+
+        .verifactu-stamp p {
+            font-size: 0.75rem;
+            color: #065f46;
+        }
+
+        .qr-placeholder {
+            width: 60px;
+            height: 60px;
+            background: #334155;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.5rem;
+            border-radius: 4px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Sección de Traducciones y Glosario ES */
+        .translations-section {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-3d);
+            border: 1px solid var(--border-color);
+            margin-bottom: 3rem;
+        }
+
+        .translations-section h2 {
+            color: var(--primary-grad-end);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--background);
+            padding-bottom: 0.8rem;
+        }
+
+        .glossary-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .glossary-table th, .glossary-table td {
+            padding: 1rem 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .glossary-table th {
+            background-color: var(--background);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            color: var(--primary-grad-end);
+        }
+
+        .glossary-table tr:hover {
+            background-color: #f8fafc;
+        }
+
+        .term-old {
+            color: var(--danger);
+            font-weight: 500;
+            text-decoration: line-through;
+        }
+
+        .term-new {
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        /* Banner de Formación */
+        .training-banner {
+            background: linear-gradient(135deg, var(--primary-grad-start), var(--primary-grad-end));
+            color: white;
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-3d);
+            margin-top: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .training-banner h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .training-banner p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .training-banner .btn-main {
+            background: white;
+            color: var(--primary-grad-end);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .training-banner .btn-main:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(255,255,255,0.25);
+        }
+
+        /* Pie de página */
+        footer {
+            text-align: center;
+            padding: 3rem 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            background: white;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabecera -->
+    <header>
+        <div class="header-container">
+            <img src="logo_auba.png" alt="Auba" class="logo-img" id="auba-logo">
+            <div class="header-text">
+                <h1>Novedades de Business Central v28</h1>
+                <p>Guía interactiva de actualizaciones - Microsoft Dynamics 365 2026 Wave 1</p>
+            </div>
+        </div>
+        <!-- Enlace Soporte AS Modificado -->
+        <a href="mailto:support@aubadcs.com" class="support-badge" title="Contactar con Soporte">
+            <div class="as-logo">AS</div>
+            <div class="support-text-container">
+                <span class="support-title">Auba Soporte</span>
+                <span class="support-subtitle">Contáctenos</span>
+            </div>
+        </a>
+    </header>
+
+    <main>
+
+        <!-- Navegación por pestañas -->
+        <div class="tabs-navigation">
+            <button class="tab-btn active" onclick="openTab(event, 'key-news')">
+                📢 Novedades Clave (España)
+            </button>
+            <button class="tab-btn" onclick="openTab(event, 'copilot-ia')">
+                🤖 IA y Copilot (Agentes)
+            </button>
+            <button class="tab-btn" onclick="openTab(event, 'infrastructure')">
+                ⚙️ Infraestructura y Rendimiento
+            </button>
+            <button class="tab-btn" onclick="openTab(event, 'lifecycle')">
+                🔄 Ciclo de Vida y Glosario
+            </button>
+            <button class="tab-btn" onclick="openTab(event, 'verifactu-simulator-tab')">
+                💻 Simulador Verifactu
+            </button>
+        </div>
+
+        <!-- Pestaña 1: Novedades Clave -->
+        <div id="key-news" class="tab-content active">
+            <!-- Grid de tarjetas (Se han eliminado los botones 'Me interesa') -->
+            <div class="news-grid">
+                <!-- Novedad 1 -->
+                <div class="news-card">
+                    <div>
+                        <div class="card-header">
+                            <div class="card-icon">🇪🇸</div>
+                            <div class="card-title-area">
+                                <h3>Modo Verifactu integrado en España</h3>
+                                <span class="badge badge-spain">Localización ES</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p>Permite cumplir de forma 100% nativa con el reglamento Verifactu de la AEAT. Incluye envío en tiempo real, firma digital y generación de código QR oficial en facturas de venta.</p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://learn.microsoft.com/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/enable-embedded-verifactu-mode-spain" target="_blank" class="btn btn-learn">Microsoft Learn</a>
+                    </div>
+                </div>
+
+                <!-- Novedad 2 -->
+                <div class="news-card">
+                    <div>
+                        <div class="card-header">
+                            <div class="card-icon">💶</div>
+                            <div class="card-title-area">
+                                <h3>Módulo de Gestión de Gastos</h3>
+                                <span class="badge badge-platform">Finanzas</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p>Llega el nuevo módulo nativo para que los empleados registren sus gastos. Permite registrar dietas (per diem), cálculo de kilometraje automático y flujos de reembolso integrados.</p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://learn.microsoft.com/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/manage-employee-expenses-using-expense-reports" target="_blank" class="btn btn-learn">Microsoft Learn</a>
+                    </div>
+                </div>
+
+                <!-- Novedad 3 -->
+                <div class="news-card">
+                    <div>
+                        <div class="card-header">
+                            <div class="card-icon">🏦</div>
+                            <div class="card-title-area">
+                                <h3>Cálculo de Retenciones de IRPF</h3>
+                                <span class="badge badge-spain">Localización ES</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p>Automatización y cálculo de retenciones del IRPF para facturas de proveedores de forma integrada, evitando tener que configurarlo de forma manual o a través de complejos desarrollos.</p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://learn.microsoft.com/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/calculate-withholding-taxes-vendors" target="_blank" class="btn btn-learn">Microsoft Learn</a>
+                    </div>
+                </div>
+
+                <!-- Novedad 4 -->
+                <div class="news-card">
+                    <div>
+                        <div class="card-header">
+                            <div class="card-icon">🥤</div>
+                            <div class="card-title-area">
+                                <h3>Impuestos para Plástico y Azúcar</h3>
+                                <span class="badge badge-spain">Legislación ES</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p>Cálculo nativo de impuestos especiales destinados al envasado de plástico no reutilizable y el gravamen sobre bebidas azucaradas, adaptado a la legislación del entorno español.</p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://learn.microsoft.com/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/calculate-taxes-plastic-sugar" target="_blank" class="btn btn-learn">Microsoft Learn</a>
+                    </div>
+                </div>
+
+                <!-- Novedad 5 -->
+                <div class="news-card">
+                    <div>
+                        <div class="card-header">
+                            <div class="card-icon">🧾</div>
+                            <div class="card-title-area">
+                                <h3>Autofacturas de Compra (Self-billed)</h3>
+                                <span class="badge badge-platform">Ventas / Compras</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p>Funcionalidad que permite emitir de forma estándar facturas de compra autofacturadas, simplificando la relación fiscal y comercial con determinados tipos de proveedores.</p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://learn.microsoft.com/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/use-self-billed-invoices" target="_blank" class="btn btn-learn">Microsoft Learn</a>
+                    </div>
+                </div>
+
+                <!-- Novedad 6 -->
+                <div class="news-card">
+                    <div>
+                        <div class="card-header">
+                            <div class="card-icon">📦</div>
+                            <div class="card-title-area">
+                                <h3>Integración Avanzada con Shopify</h3>
+                                <span class="badge badge-platform">Ecommerce</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p>Mejoras de integración que permiten asignar colecciones personalizadas de Shopify a productos de Business Central y exportar atributos avanzados basados en campos personalizados.</p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://learn.microsoft.com/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/export-items-shopify-product-options-based-item-attributes" target="_blank" class="btn btn-learn">Microsoft Learn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pestaña 2: IA y Copilot -->
+        <div id="copilot-ia" class="tab-content">
+            <div class="news-grid">
+                <!-- Novedad 7 -->
+                <div class="news-card">
+                    <div>
+                        <div class="card-header">
+                            <div class="card-icon">🤖</div>
+                            <div class="card-title-area">
+                                <h3>Agente de Gastos (Expense Agent)</h3>
+                                <span class="badge badge-copilot">IA Copilot</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p>Este agente inteligente lee fotos de tickets de los empleados enviadas por correo o subidas a la app, extrae la información contable, detecta duplicados y crea el informe de gastos automáticamente.</p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://learn.microsoft.com/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/manage-expenses-business-central-using-expense-agent" target="_blank" class="btn btn-learn">Microsoft Learn</a>
+                    </div>
+                </div>
+
+                <!-- Novedad 8 -->
+                <div class="news-card">
+                    <div>
+                        <div class="card-header">
+                            <div class="card-icon">✉️</div>
+                            <div class="card-title-area">
+                                <h3>Agente de Proveedores (Payables Agent)</h3>
+                                <span class="badge badge-copilot">IA Copilot</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p>Procesa de forma autónoma la bandeja de entrada para detectar correos electrónicos con facturas de proveedores adjuntas, identificando y pre-registrando el documento en Business Central.</p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://learn.microsoft.com/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/discover-emails-mailbox-that-have-been-processed-payables-agent" target="_blank" class="btn btn-learn">Microsoft Learn</a>
+                    </div>
+                </div>
+
+                <!-- Novedad 9 -->
+                <div class="news-card">
+                    <div>
+                        <div class="card-header">
+                            <div class="card-icon">📋</div>
+                            <div class="card-title-area">
+                                <h3>Bandeja Unificada de Tareas de Agentes</h3>
+                                <span class="badge badge-copilot">IA Copilot</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p>Un nuevo panel de tareas donde se centralizan las actividades de todos los agentes autónomos de IA. Los usuarios pueden auditar lo que procesan y aprobar los registros pendientes de un vistazo.</p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://learn.microsoft.com/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/manage-tasks-all-agents-dedicated-task-pane" target="_blank" class="btn btn-learn">Microsoft Learn</a>
+                    </div>
+                </div>
+
+                <!-- Novedad 10 -->
+                <div class="news-card">
+                    <div>
+                        <div class="card-header">
+                            <div class="card-icon">📊</div>
+                            <div class="card-title-area">
+                                <h3>KPIs e Insights de Producto</h3>
+                                <span class="badge badge-copilot">IA Copilot</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p>Copilot añade un widget interactivo en el análisis de inventario que genera de forma automática resúmenes sobre la rotación de los productos y calcula KPIs de rendimiento comercial avanzados.</p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://learn.microsoft.com/dynamics365/business-central/ad-hoc-analysis-inventory#get-insights-into-item-data-with-advanced-kpis-and-summary" target="_blank" class="btn btn-learn">Microsoft Learn</a>
+                    </div>
+                </div>
+
+                <!-- Novedad 11 -->
+                <div class="news-card">
+                    <div>
+                        <div class="card-header">
+                            <div class="card-icon">🛠️</div>
+                            <div class="card-title-area">
+                                <h3>Diseño de Agentes Personalizados</h3>
+                                <span class="badge badge-copilot">Desarrollo</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p>Llega el Agent Designer para que los consultores y administradores diseñen, prototipen y desplieguen agentes de IA propios adaptados a los flujos del cliente en Business Central.</p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://learn.microsoft.com/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/envision-prototype-custom-ai-agents-using-agent-designer" target="_blank" class="btn btn-learn">Microsoft Learn</a>
+                    </div>
+                </div>
+
+                <!-- Novedad 12 -->
+                <div class="news-card">
+                    <div>
+                        <div class="card-header">
+                            <div class="card-icon">🔒</div>
+                            <div class="card-title-area">
+                                <h3>Conexión a Centro de Admin por MCP</h3>
+                                <span class="badge badge-copilot">Seguridad</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p>Conexión segura de agentes de IA con el Centro de Administración a través de un servidor MCP (Model Context Protocol), asegurando la auditoría de cada acción que realiza la IA.</p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://learn.microsoft.com/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/connect-ai-agents-admin-center-through-mcp-server" target="_blank" class="btn btn-learn">Microsoft Learn</a>
+                    </div>
+                </div>
+
+                <!-- Novedad 13 -->
+                <div class="news-card">
+                    <div>
+                        <div class="card-header">
+                            <div class="card-icon">🔑</div>
+                            <div class="card-title-area">
+                                <h3>APIs de Seguridad y Auditoría</h3>
+                                <span class="badge badge-platform">Plataforma</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p>Nuevas APIs específicas para que los auditores analicen de forma automatizada los flujos de aprobación y los permisos de usuario entre las distintas aplicaciones instaladas.</p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://learn.microsoft.com/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/use-new-apis-analyzing-approval-workflows-auditors-it-staff" target="_blank" class="btn btn-learn">Microsoft Learn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pestaña 3: Infraestructura y Rendimiento -->
+        <div id="infrastructure" class="tab-content">
+            <div class="news-grid">
+                <!-- Novedad 14 -->
+                <div class="news-card">
+                    <div>
+                        <div class="card-header">
+                            <div class="card-icon">🗄️</div>
+                            <div class="card-title-area">
+                                <h3>Almacenamiento Externo de Adjuntos</h3>
+                                <span class="badge badge-platform">Administración</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p>Permite guardar archivos y PDF adjuntos de facturas, clientes, etc., fuera de la base de datos de Business Central en un almacenamiento externo. Esto reduce drásticamente los costes del tenant.</p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://learn.microsoft.com/dynamics365/business-central/across-store-document-attachments-externally" target="_blank" class="btn btn-learn">Microsoft Learn</a>
+                    </div>
+                </div>
+
+                <!-- Novedad 15 -->
+                <div class="news-card">
+                    <div>
+                        <div class="card-header">
+                            <div class="card-icon">⚡</div>
+                            <div class="card-title-area">
+                                <h3>Informes de Balance más rápidos</h3>
+                                <span class="badge badge-platform">Rendimiento</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p>Los informes de diferimientos y de balance de comprobación (Sumas y Saldos) se han rediseñado internamente. Se ejecutan notablemente más rápido y son más fluidos en grandes volúmenes.</p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://learn.microsoft.com/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/use-enhanced-faster-reports-analysis-deferrals-trial-balances" target="_blank" class="btn btn-learn">Microsoft Learn</a>
+                    </div>
+                </div>
+
+                <!-- Novedad 16 -->
+                <div class="news-card">
+                    <div>
+                        <div class="card-header">
+                            <div class="card-icon">🖨️</div>
+                            <div class="card-title-area">
+                                <h3>Ciclo de Vida de Diseños de Informe</h3>
+                                <span class="badge badge-platform">Administración</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p>Mejoras de gobernanza para reportes: permite configurar diseños de informe en estado Borrador, Activo u Obsoleto para evitar que los usuarios impriman formatos desactualizados.</p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://learn.microsoft.com/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/control-lifecycle-report-layouts" target="_blank" class="btn btn-learn">Microsoft Learn</a>
+                    </div>
+                </div>
+
+                <!-- Novedad 17 -->
+                <div class="news-card">
+                    <div>
+                        <div class="card-header">
+                            <div class="card-icon">🌐</div>
+                            <div class="card-title-area">
+                                <h3>Idioma predeterminado por empresa</h3>
+                                <span class="badge badge-platform">Configuración</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p>Permite configurar a nivel de empresa un idioma de documentos por defecto, simplificando la emisión masiva de facturas e informes a clientes nacionales o internacionales sin configuraciones por registro.</p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://learn.microsoft.com/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/set-default-language-documents-company-level" target="_blank" class="btn btn-learn">Microsoft Learn</a>
+                    </div>
+                </div>
+
+                <!-- Novedad 18 -->
+                <div class="news-card">
+                    <div>
+                        <div class="card-header">
+                            <div class="card-icon">📧</div>
+                            <div class="card-title-area">
+                                <h3>Integración con Outlook Renovada</h3>
+                                <span class="badge badge-platform">Productividad</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p>Permite añadir y guardar contactos comerciales a Business Central de forma directa e interactiva desde la interfaz web de Outlook en el flujo de trabajo.</p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://learn.microsoft.com/dynamics365/business-central/save-business-contacts-to-outlook" target="_blank" class="btn btn-learn">Microsoft Learn</a>
+                    </div>
+                </div>
+
+                <!-- Novedad 19 -->
+                <div class="news-card">
+                    <div>
+                        <div class="card-header">
+                            <div class="card-icon">☁️</div>
+                            <div class="card-title-area">
+                                <h3>Migración Cloud Directa de SQL</h3>
+                                <span class="badge badge-platform">Migración</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p>Herramientas avanzadas que facilitan la migración a Business Central Cloud a partir de cualquier origen de datos SQL Server local, automatizando gran parte de la correspondencia de tablas.</p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://learn.microsoft.com/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/migrate-cloud-sql-database" target="_blank" class="btn btn-learn">Microsoft Learn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pestaña 4: Ciclo de Vida y Glosario -->
+        <div id="lifecycle" class="tab-content">
+            <!-- Bloque Cambios Obligatorios y Deprecaciones -->
+            <div style="margin-bottom: 3rem;">
+                <h2 style="color: var(--primary-grad-end); margin-bottom: 1.5rem; border-bottom: 2px solid var(--background); padding-bottom: 0.8rem;">
+                    Características Obligatorias y Desuso
+                </h2>
+                <div class="news-grid">
+                    <div class="news-card" style="border-color: #fca5a5;">
+                        <div>
+                            <div class="card-header">
+                                <div class="card-icon" style="color: var(--danger); background: #fef2f2;">⚠️</div>
+                                <div class="card-title-area">
+                                    <h3>Nueva Experiencia de Precios Obligatoria</h3>
+                                    <span class="badge badge-mandatory">Obligatorio</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <p>El antiguo motor de precios ha sido eliminado definitivamente. La Nueva Experiencia de Precios es ahora la única disponible. Requiere homologación de tarifas y configuraciones heredadas.</p>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://learn.microsoft.com/dynamics365/business-central/dev-itpro/administration/feature-management-mandatory-features" target="_blank" class="btn btn-learn">Microsoft Learn</a>
+                        </div>
+                    </div>
+
+                    <div class="news-card">
+                        <div>
+                            <div class="card-header">
+                                <div class="card-icon">⚡</div>
+                                <div class="card-title-area">
+                                    <h3>Acceso MCP Server Activado por Defecto</h3>
+                                    <span class="badge badge-mandatory">Obligatorio</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <p>La característica opcional para el acceso al servidor MCP se activa por defecto para toda la plataforma y no surte efecto desactivarla de la configuración de Feature Management.</p>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://learn.microsoft.com/dynamics365/business-central/dev-itpro/whatsnew/whatsnew-update-28-0#changes-to-optional-features-in-feature-management" target="_blank" class="btn btn-learn">Microsoft Learn</a>
+                        </div>
+                    </div>
+
+                    <div class="news-card" style="border-color: #fca5a5;">
+                        <div>
+                            <div class="card-header">
+                                <div class="card-icon" style="color: var(--danger); background: #fef2f2;">❌</div>
+                                <div class="card-title-area">
+                                    <h3>Deprecación de Legacy Workflows y Correo</h3>
+                                    <span class="badge badge-mandatory">Desuso</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <p>Desaparición de los antiguos motores de envío de email y flujos de aprobación antiguos. Se migra obligatoriamente al nuevo módulo de correo de plataforma y flujos avanzados basados en Power Automate.</p>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://learn.microsoft.com/dynamics365/business-central/dev-itpro/upgrade/upgrade-overview-v28" target="_blank" class="btn btn-learn">Microsoft Learn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabla de Glosario ES -->
+            <div class="translations-section">
+                <h2>Glosario Oficial de Traducciones (Localización ES)</h2>
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem;">
+                    Microsoft ha consolidado y cambiado la traducción en español de varios términos clave del estándar de Business Central para adaptarlos mejor a la nomenclatura contable moderna y a la unificación con otros sistemas de Dynamics 365:
+                </p>
+                <table class="glossary-table">
+                    <thead>
+                        <tr>
+                            <th>Término Anterior (Obsoleto)</th>
+                            <th>Nuevo Término Estándar (v28)</th>
+                            <th>Equivalente en Inglés (AL Code)</th>
+                            <th>Implicación</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="term-old">Trabajos</span></td>
+                            <td><span class="term-new">Proyectos</span></td>
+                            <td><code>Jobs / Job Queue</code></td>
+                            <td>Cambio total en la barra de navegación, menús e informes para toda la interfaz de usuario.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-old">Tareas de trabajo</span></td>
+                            <td><span class="term-new">Líneas de tarea de proyecto</span></td>
+                            <td><code>Job Tasks</code></td>
+                            <td>Unificación de términos dentro de la ficha de proyecto y sus líneas de desglose.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-old">Hojas de horas</span></td>
+                            <td><span class="term-new">Partes de horas</span></td>
+                            <td><code>Time Sheets</code></td>
+                            <td>Adaptación lingüística al término más utilizado en las empresas españolas para el reporte de horas.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-old">Diarios</span></td>
+                            <td><span class="term-new">Secciones de diario</span></td>
+                            <td><code>Gen. Journal Batches</code></td>
+                            <td>Aclaración visual de las plantillas contables previas al registro de asientos.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Pestaña 5: Simulador Verifactu -->
+        <div id="verifactu-simulator-tab" class="tab-content">
+            <!-- Simulador de Verifactu de España -->
+            <div class="simulator-section" style="margin-top: 1rem; margin-bottom: 1rem;">
+                <div class="simulator-header">
+                    <div class="simulator-title">
+                        <h2>Simulador Interactivo de Verifactu</h2>
+                        <p>Haga clic en el switch para simular cómo se activa Verifactu de forma nativa en Business Central.</p>
+                    </div>
+                </div>
+                <div class="simulator-bc-window">
+                    <div class="bc-nav-bar">
+                        <span class="bc-logo-text">Dynamics 365 Business Central</span>
+                        <span>Configuración de Localización de España</span>
+                    </div>
+                    <div class="bc-content-area">
+                        <div class="sim-setup-card">
+                            <div class="sim-setup-header">Configuración de Facturación Electrónica</div>
+                            <div class="sim-row">
+                                <span>Activar Modo Veri*Factu (AEAT)</span>
+                                <label class="switch">
+                                    <input type="checkbox" id="verifactu-toggle" onchange="toggleVerifactuSim()">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="sim-row">
+                                <span>Firmar con certificado digital calificado</span>
+                                <span style="font-size: 0.8rem; color: var(--text-muted);" id="cert-status">Inactivo</span>
+                            </div>
+                            <div class="sim-row">
+                                <span>Inhabilitar SII (Incompatible con Verifactu)</span>
+                                <span style="color: var(--success); font-weight: bold; font-size: 0.8rem;" id="sii-status">SII Activo</span>
+                            </div>
+                        </div>
+
+                        <!-- Factura Simulada Generada con QR -->
+                        <div class="invoice-preview-container" id="invoice-sim">
+                            <div class="invoice-title">FACTURA DE VENTA MOCK-001</div>
+                            <div class="invoice-details">
+                                <span>Cliente: Auba Dynamics</span>
+                                <span>Fecha: 21/05/2026</span>
+                            </div>
+                            <div class="invoice-total">
+                                Total Factura: 1.210,00 € (IVA Incluido)
+                            </div>
+                            <div class="verifactu-stamp">
+                                <div class="qr-placeholder">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="3" width="6" height="6"></rect>
+                                        <rect x="15" y="3" width="6" height="6"></rect>
+                                        <rect x="3" y="15" width="6" height="6"></rect>
+                                        <path d="M15 15h1v1h-1zM18 18h1v1h-1zM15 18h1v1h-1zM18 15h1v1h-1zM20 17h1v1h-1zM17 20h1v1h-1z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p style="font-weight: 700;">ENVIADO A AEAT - VERIFACTU</p>
+                                    <p>Identificador AEAT: 28-3904C08282-01</p>
+                                    <p>Escanee el código QR para validar en la web de Hacienda.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Banner de Formación al final (Modificado a Usted) -->
+        <div class="training-banner">
+            <h2>¿Desea dominar estas novedades?</h2>
+            <p>Ofrecemos formación personalizada e informativa para usted y su equipo. Seleccione los temas de interés y le prepararemos una sesión adaptada.</p>
+            <a href="formacion.html" target="_blank" class="btn-main">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg>
+                Solicitar Formación Personalizada
+            </a>
+        </div>
+
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>© 2026 Auba Dynamic Consulting Solutions. Todos los derechos reservados.</p>
+        <p>Desarrollado y preparado con la documentación oficial del Partner Center de Microsoft.</p>
+    </footer>
+
+    <script>
+        // Lógica de Pestañas
+        function openTab(evt, tabId) {
+            // Ocultar todos los contenidos de pestañas
+            const tabContents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active");
+            }
+
+            // Quitar la clase active de todos los botones
+            const tabButtons = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove("active");
+            }
+
+            // Mostrar la pestaña actual y marcar el botón como activo
+            document.getElementById(tabId).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+
+        // Lógica del simulador de Verifactu (Usted)
+        function toggleVerifactuSim() {
+            const toggle = document.getElementById("verifactu-toggle");
+            const invoiceSim = document.getElementById("invoice-sim");
+            const certStatus = document.getElementById("cert-status");
+            const siiStatus = document.getElementById("sii-status");
+
+            if (toggle.checked) {
+                invoiceSim.style.display = "block";
+                certStatus.innerText = "Certificado de Auba Cargado";
+                certStatus.style.color = "var(--success)";
+                certStatus.style.fontWeight = "bold";
+                siiStatus.innerText = "SII Deshabilitado";
+                siiStatus.style.color = "var(--danger)";
+            } else {
+                invoiceSim.style.display = "none";
+                certStatus.innerText = "Inactivo";
+                certStatus.style.color = "var(--text-muted)";
+                certStatus.style.fontWeight = "normal";
+                siiStatus.innerText = "SII Activo";
+                siiStatus.style.color = "var(--success)";
+            }
+        }
+    </script>
+</body>
+</html>
