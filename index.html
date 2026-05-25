@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Novedades y Actualizaciones - Microsoft Dynamics 365 Business Central v28</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23314d6c'/><text x='50%' y='65%' font-size='42' font-family='sans-serif' font-weight='900' fill='%23ffffff' text-anchor='middle'>AUBA</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -701,7 +702,7 @@
             </div>
         </div>
         <!-- Enlace Soporte AS Modificado -->
-        <a href="mailto:support@aubadcs.com" class="support-badge" title="Contactar con Soporte">
+        <a href="https://aubadcs.com" target="_blank" class="support-badge" title="Visitar Web de Auba">
             <div class="as-logo">AS</div>
             <div class="support-text-container">
                 <span class="support-title">Auba Soporte</span>
@@ -717,8 +718,9 @@
             <button class="tab-btn active" onclick="openTab(event, 'key-news')">
                 📢 Novedades Clave (España)
             </button>
-            <button class="tab-btn" onclick="openTab(event, 'copilot-ia')">
-                🤖 IA y Copilot (Agentes)
+            <button class="tab-btn" onclick="openTab(event, 'copilot-ia')" style="display: inline-flex; align-items: center; gap: 8px;">
+                <svg fill="currentColor" fill-rule="evenodd" viewBox="0 0 24 24" style="width: 1.1em; height: 1.1em;" xmlns="http://www.w3.org/2000/svg"><title>Copilot</title><path d="M9 23l.073-.001a2.53 2.53 0 01-2.347-1.838l-.697-2.433a2.529 2.529 0 00-2.426-1.839h-.497l-.104-.002c-4.485 0-2.935-5.278-1.75-9.225l.162-.525C2.412 3.99 3.883 1 6.25 1h8.86c1.12 0 2.106.745 2.422 1.829l.715 2.453a2.53 2.53 0 002.247 1.823l.147.005.534.001c3.557.115 3.088 3.745 2.156 7.206l-.113.413c-.154.548-.315 1.089-.47 1.607l-.163.525C21.588 20.01 20.116 23 17.75 23h-8.75zm8.22-15.89l-3.856.001a2.526 2.526 0 00-2.35 1.615L9.21 15.04a2.529 2.529 0 01-2.43 1.847l3.853.002c1.056 0 1.992-.661 2.361-1.644l1.796-6.287a2.529 2.529 0 012.43-1.848z"></path></svg>
+                IA y Copilot (Agentes)
             </button>
             <button class="tab-btn" onclick="openTab(event, 'infrastructure')">
                 ⚙️ Infraestructura y Rendimiento
@@ -726,9 +728,7 @@
             <button class="tab-btn" onclick="openTab(event, 'lifecycle')">
                 🔄 Ciclo de Vida y Glosario
             </button>
-            <button class="tab-btn" onclick="openTab(event, 'verifactu-simulator-tab')">
-                💻 Simulador Verifactu
-            </button>
+
         </div>
 
         <!-- Pestaña 1: Novedades Clave -->
@@ -749,9 +749,6 @@
                             <p>Permite cumplir de forma 100% nativa con el reglamento Verifactu de la AEAT. Incluye envío en tiempo real, firma digital y generación de código QR oficial en facturas de venta.</p>
                         </div>
                     </div>
-                    <div class="card-footer">
-                        <a href="https://learn.microsoft.com/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/enable-embedded-verifactu-mode-spain" target="_blank" class="btn btn-learn">Microsoft Learn</a>
-                    </div>
                 </div>
 
                 <!-- Novedad 2 -->
@@ -767,9 +764,6 @@
                         <div class="card-body">
                             <p>Llega el nuevo módulo nativo para que los empleados registren sus gastos. Permite registrar dietas (per diem), cálculo de kilometraje automático y flujos de reembolso integrados.</p>
                         </div>
-                    </div>
-                    <div class="card-footer">
-                        <a href="https://learn.microsoft.com/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/manage-employee-expenses-using-expense-reports" target="_blank" class="btn btn-learn">Microsoft Learn</a>
                     </div>
                 </div>
 
@@ -787,9 +781,6 @@
                             <p>Automatización y cálculo de retenciones del IRPF para facturas de proveedores de forma integrada, evitando tener que configurarlo de forma manual o a través de complejos desarrollos.</p>
                         </div>
                     </div>
-                    <div class="card-footer">
-                        <a href="https://learn.microsoft.com/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/calculate-withholding-taxes-vendors" target="_blank" class="btn btn-learn">Microsoft Learn</a>
-                    </div>
                 </div>
 
                 <!-- Novedad 4 -->
@@ -805,9 +796,6 @@
                         <div class="card-body">
                             <p>Cálculo nativo de impuestos especiales destinados al envasado de plástico no reutilizable y el gravamen sobre bebidas azucaradas, adaptado a la legislación del entorno español.</p>
                         </div>
-                    </div>
-                    <div class="card-footer">
-                        <a href="https://learn.microsoft.com/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/calculate-taxes-plastic-sugar" target="_blank" class="btn btn-learn">Microsoft Learn</a>
                     </div>
                 </div>
 
@@ -825,9 +813,6 @@
                             <p>Funcionalidad que permite emitir de forma estándar facturas de compra autofacturadas, simplificando la relación fiscal y comercial con determinados tipos de proveedores.</p>
                         </div>
                     </div>
-                    <div class="card-footer">
-                        <a href="https://learn.microsoft.com/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/use-self-billed-invoices" target="_blank" class="btn btn-learn">Microsoft Learn</a>
-                    </div>
                 </div>
 
                 <!-- Novedad 6 -->
@@ -844,9 +829,6 @@
                             <p>Mejoras de integración que permiten asignar colecciones personalizadas de Shopify a productos de Business Central y exportar atributos avanzados basados en campos personalizados.</p>
                         </div>
                     </div>
-                    <div class="card-footer">
-                        <a href="https://learn.microsoft.com/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/export-items-shopify-product-options-based-item-attributes" target="_blank" class="btn btn-learn">Microsoft Learn</a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -858,7 +840,9 @@
                 <div class="news-card">
                     <div>
                         <div class="card-header">
-                            <div class="card-icon">🤖</div>
+                            <div class="card-icon">
+                                <svg fill="currentColor" fill-rule="evenodd" viewBox="0 0 24 24" style="width: 24px; height: 24px;" xmlns="http://www.w3.org/2000/svg"><title>Copilot</title><path d="M9 23l.073-.001a2.53 2.53 0 01-2.347-1.838l-.697-2.433a2.529 2.529 0 00-2.426-1.839h-.497l-.104-.002c-4.485 0-2.935-5.278-1.75-9.225l.162-.525C2.412 3.99 3.883 1 6.25 1h8.86c1.12 0 2.106.745 2.422 1.829l.715 2.453a2.53 2.53 0 002.247 1.823l.147.005.534.001c3.557.115 3.088 3.745 2.156 7.206l-.113.413c-.154.548-.315 1.089-.47 1.607l-.163.525C21.588 20.01 20.116 23 17.75 23h-8.75zm8.22-15.89l-3.856.001a2.526 2.526 0 00-2.35 1.615L9.21 15.04a2.529 2.529 0 01-2.43 1.847l3.853.002c1.056 0 1.992-.661 2.361-1.644l1.796-6.287a2.529 2.529 0 012.43-1.848z"></path></svg>
+                            </div>
                             <div class="card-title-area">
                                 <h3>Agente de Gastos (Expense Agent)</h3>
                                 <span class="badge badge-copilot">IA Copilot</span>
@@ -867,9 +851,6 @@
                         <div class="card-body">
                             <p>Este agente inteligente lee fotos de tickets de los empleados enviadas por correo o subidas a la app, extrae la información contable, detecta duplicados y crea el informe de gastos automáticamente.</p>
                         </div>
-                    </div>
-                    <div class="card-footer">
-                        <a href="https://learn.microsoft.com/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/manage-expenses-business-central-using-expense-agent" target="_blank" class="btn btn-learn">Microsoft Learn</a>
                     </div>
                 </div>
 
@@ -887,9 +868,6 @@
                             <p>Procesa de forma autónoma la bandeja de entrada para detectar correos electrónicos con facturas de proveedores adjuntas, identificando y pre-registrando el documento en Business Central.</p>
                         </div>
                     </div>
-                    <div class="card-footer">
-                        <a href="https://learn.microsoft.com/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/discover-emails-mailbox-that-have-been-processed-payables-agent" target="_blank" class="btn btn-learn">Microsoft Learn</a>
-                    </div>
                 </div>
 
                 <!-- Novedad 9 -->
@@ -905,9 +883,6 @@
                         <div class="card-body">
                             <p>Un nuevo panel de tareas donde se centralizan las actividades de todos los agentes autónomos de IA. Los usuarios pueden auditar lo que procesan y aprobar los registros pendientes de un vistazo.</p>
                         </div>
-                    </div>
-                    <div class="card-footer">
-                        <a href="https://learn.microsoft.com/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/manage-tasks-all-agents-dedicated-task-pane" target="_blank" class="btn btn-learn">Microsoft Learn</a>
                     </div>
                 </div>
 
@@ -925,9 +900,6 @@
                             <p>Copilot añade un widget interactivo en el análisis de inventario que genera de forma automática resúmenes sobre la rotación de los productos y calcula KPIs de rendimiento comercial avanzados.</p>
                         </div>
                     </div>
-                    <div class="card-footer">
-                        <a href="https://learn.microsoft.com/dynamics365/business-central/ad-hoc-analysis-inventory#get-insights-into-item-data-with-advanced-kpis-and-summary" target="_blank" class="btn btn-learn">Microsoft Learn</a>
-                    </div>
                 </div>
 
                 <!-- Novedad 11 -->
@@ -943,9 +915,6 @@
                         <div class="card-body">
                             <p>Llega el Agent Designer para que los consultores y administradores diseñen, prototipen y desplieguen agentes de IA propios adaptados a los flujos del cliente en Business Central.</p>
                         </div>
-                    </div>
-                    <div class="card-footer">
-                        <a href="https://learn.microsoft.com/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/envision-prototype-custom-ai-agents-using-agent-designer" target="_blank" class="btn btn-learn">Microsoft Learn</a>
                     </div>
                 </div>
 
@@ -963,9 +932,6 @@
                             <p>Conexión segura de agentes de IA con el Centro de Administración a través de un servidor MCP (Model Context Protocol), asegurando la auditoría de cada acción que realiza la IA.</p>
                         </div>
                     </div>
-                    <div class="card-footer">
-                        <a href="https://learn.microsoft.com/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/connect-ai-agents-admin-center-through-mcp-server" target="_blank" class="btn btn-learn">Microsoft Learn</a>
-                    </div>
                 </div>
 
                 <!-- Novedad 13 -->
@@ -981,9 +947,6 @@
                         <div class="card-body">
                             <p>Nuevas APIs específicas para que los auditores analicen de forma automatizada los flujos de aprobación y los permisos de usuario entre las distintas aplicaciones instaladas.</p>
                         </div>
-                    </div>
-                    <div class="card-footer">
-                        <a href="https://learn.microsoft.com/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/use-new-apis-analyzing-approval-workflows-auditors-it-staff" target="_blank" class="btn btn-learn">Microsoft Learn</a>
                     </div>
                 </div>
             </div>
@@ -1006,9 +969,6 @@
                             <p>Permite guardar archivos y PDF adjuntos de facturas, clientes, etc., fuera de la base de datos de Business Central en un almacenamiento externo. Esto reduce drásticamente los costes del tenant.</p>
                         </div>
                     </div>
-                    <div class="card-footer">
-                        <a href="https://learn.microsoft.com/dynamics365/business-central/across-store-document-attachments-externally" target="_blank" class="btn btn-learn">Microsoft Learn</a>
-                    </div>
                 </div>
 
                 <!-- Novedad 15 -->
@@ -1024,9 +984,6 @@
                         <div class="card-body">
                             <p>Los informes de diferimientos y de balance de comprobación (Sumas y Saldos) se han rediseñado internamente. Se ejecutan notablemente más rápido y son más fluidos en grandes volúmenes.</p>
                         </div>
-                    </div>
-                    <div class="card-footer">
-                        <a href="https://learn.microsoft.com/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/use-enhanced-faster-reports-analysis-deferrals-trial-balances" target="_blank" class="btn btn-learn">Microsoft Learn</a>
                     </div>
                 </div>
 
@@ -1044,9 +1001,6 @@
                             <p>Mejoras de gobernanza para reportes: permite configurar diseños de informe en estado Borrador, Activo u Obsoleto para evitar que los usuarios impriman formatos desactualizados.</p>
                         </div>
                     </div>
-                    <div class="card-footer">
-                        <a href="https://learn.microsoft.com/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/control-lifecycle-report-layouts" target="_blank" class="btn btn-learn">Microsoft Learn</a>
-                    </div>
                 </div>
 
                 <!-- Novedad 17 -->
@@ -1062,9 +1016,6 @@
                         <div class="card-body">
                             <p>Permite configurar a nivel de empresa un idioma de documentos por defecto, simplificando la emisión masiva de facturas e informes a clientes nacionales o internacionales sin configuraciones por registro.</p>
                         </div>
-                    </div>
-                    <div class="card-footer">
-                        <a href="https://learn.microsoft.com/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/set-default-language-documents-company-level" target="_blank" class="btn btn-learn">Microsoft Learn</a>
                     </div>
                 </div>
 
@@ -1082,9 +1033,6 @@
                             <p>Permite añadir y guardar contactos comerciales a Business Central de forma directa e interactiva desde la interfaz web de Outlook en el flujo de trabajo.</p>
                         </div>
                     </div>
-                    <div class="card-footer">
-                        <a href="https://learn.microsoft.com/dynamics365/business-central/save-business-contacts-to-outlook" target="_blank" class="btn btn-learn">Microsoft Learn</a>
-                    </div>
                 </div>
 
                 <!-- Novedad 19 -->
@@ -1100,9 +1048,6 @@
                         <div class="card-body">
                             <p>Herramientas avanzadas que facilitan la migración a Business Central Cloud a partir de cualquier origen de datos SQL Server local, automatizando gran parte de la correspondencia de tablas.</p>
                         </div>
-                    </div>
-                    <div class="card-footer">
-                        <a href="https://learn.microsoft.com/dynamics365/release-plan/2026wave1/smb/dynamics365-business-central/migrate-cloud-sql-database" target="_blank" class="btn btn-learn">Microsoft Learn</a>
                     </div>
                 </div>
             </div>
@@ -1129,9 +1074,6 @@
                                 <p>El antiguo motor de precios ha sido eliminado definitivamente. La Nueva Experiencia de Precios es ahora la única disponible. Requiere homologación de tarifas y configuraciones heredadas.</p>
                             </div>
                         </div>
-                        <div class="card-footer">
-                            <a href="https://learn.microsoft.com/dynamics365/business-central/dev-itpro/administration/feature-management-mandatory-features" target="_blank" class="btn btn-learn">Microsoft Learn</a>
-                        </div>
                     </div>
 
                     <div class="news-card">
@@ -1147,9 +1089,6 @@
                                 <p>La característica opcional para el acceso al servidor MCP se activa por defecto para toda la plataforma y no surte efecto desactivarla de la configuración de Feature Management.</p>
                             </div>
                         </div>
-                        <div class="card-footer">
-                            <a href="https://learn.microsoft.com/dynamics365/business-central/dev-itpro/whatsnew/whatsnew-update-28-0#changes-to-optional-features-in-feature-management" target="_blank" class="btn btn-learn">Microsoft Learn</a>
-                        </div>
                     </div>
 
                     <div class="news-card" style="border-color: #fca5a5;">
@@ -1164,9 +1103,6 @@
                             <div class="card-body">
                                 <p>Desaparición de los antiguos motores de envío de email y flujos de aprobación antiguos. Se migra obligatoriamente al nuevo módulo de correo de plataforma y flujos avanzados basados en Power Automate.</p>
                             </div>
-                        </div>
-                        <div class="card-footer">
-                            <a href="https://learn.microsoft.com/dynamics365/business-central/dev-itpro/upgrade/upgrade-overview-v28" target="_blank" class="btn btn-learn">Microsoft Learn</a>
                         </div>
                     </div>
                 </div>
@@ -1217,72 +1153,6 @@
             </div>
         </div>
 
-        <!-- Pestaña 5: Simulador Verifactu -->
-        <div id="verifactu-simulator-tab" class="tab-content">
-            <!-- Simulador de Verifactu de España -->
-            <div class="simulator-section" style="margin-top: 1rem; margin-bottom: 1rem;">
-                <div class="simulator-header">
-                    <div class="simulator-title">
-                        <h2>Simulador Interactivo de Verifactu</h2>
-                        <p>Haga clic en el switch para simular cómo se activa Verifactu de forma nativa en Business Central.</p>
-                    </div>
-                </div>
-                <div class="simulator-bc-window">
-                    <div class="bc-nav-bar">
-                        <span class="bc-logo-text">Dynamics 365 Business Central</span>
-                        <span>Configuración de Localización de España</span>
-                    </div>
-                    <div class="bc-content-area">
-                        <div class="sim-setup-card">
-                            <div class="sim-setup-header">Configuración de Facturación Electrónica</div>
-                            <div class="sim-row">
-                                <span>Activar Modo Veri*Factu (AEAT)</span>
-                                <label class="switch">
-                                    <input type="checkbox" id="verifactu-toggle" onchange="toggleVerifactuSim()">
-                                    <span class="slider"></span>
-                                </label>
-                            </div>
-                            <div class="sim-row">
-                                <span>Firmar con certificado digital calificado</span>
-                                <span style="font-size: 0.8rem; color: var(--text-muted);" id="cert-status">Inactivo</span>
-                            </div>
-                            <div class="sim-row">
-                                <span>Inhabilitar SII (Incompatible con Verifactu)</span>
-                                <span style="color: var(--success); font-weight: bold; font-size: 0.8rem;" id="sii-status">SII Activo</span>
-                            </div>
-                        </div>
-
-                        <!-- Factura Simulada Generada con QR -->
-                        <div class="invoice-preview-container" id="invoice-sim">
-                            <div class="invoice-title">FACTURA DE VENTA MOCK-001</div>
-                            <div class="invoice-details">
-                                <span>Cliente: Auba Dynamics</span>
-                                <span>Fecha: 21/05/2026</span>
-                            </div>
-                            <div class="invoice-total">
-                                Total Factura: 1.210,00 € (IVA Incluido)
-                            </div>
-                            <div class="verifactu-stamp">
-                                <div class="qr-placeholder">
-                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <rect x="3" y="3" width="6" height="6"></rect>
-                                        <rect x="15" y="3" width="6" height="6"></rect>
-                                        <rect x="3" y="15" width="6" height="6"></rect>
-                                        <path d="M15 15h1v1h-1zM18 18h1v1h-1zM15 18h1v1h-1zM18 15h1v1h-1zM20 17h1v1h-1zM17 20h1v1h-1z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p style="font-weight: 700;">ENVIADO A AEAT - VERIFACTU</p>
-                                    <p>Identificador AEAT: 28-3904C08282-01</p>
-                                    <p>Escanee el código QR para validar en la web de Hacienda.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <!-- Banner de Formación al final (Modificado a Usted) -->
         <div class="training-banner">
             <h2>¿Desea dominar estas novedades?</h2>
@@ -1321,30 +1191,6 @@
             // Mostrar la pestaña actual y marcar el botón como activo
             document.getElementById(tabId).classList.add("active");
             evt.currentTarget.classList.add("active");
-        }
-
-        // Lógica del simulador de Verifactu (Usted)
-        function toggleVerifactuSim() {
-            const toggle = document.getElementById("verifactu-toggle");
-            const invoiceSim = document.getElementById("invoice-sim");
-            const certStatus = document.getElementById("cert-status");
-            const siiStatus = document.getElementById("sii-status");
-
-            if (toggle.checked) {
-                invoiceSim.style.display = "block";
-                certStatus.innerText = "Certificado de Auba Cargado";
-                certStatus.style.color = "var(--success)";
-                certStatus.style.fontWeight = "bold";
-                siiStatus.innerText = "SII Deshabilitado";
-                siiStatus.style.color = "var(--danger)";
-            } else {
-                invoiceSim.style.display = "none";
-                certStatus.innerText = "Inactivo";
-                certStatus.style.color = "var(--text-muted)";
-                certStatus.style.fontWeight = "normal";
-                siiStatus.innerText = "SII Activo";
-                siiStatus.style.color = "var(--success)";
-            }
         }
     </script>
 </body>

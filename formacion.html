@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solicitud de Formación Personalizada - Business Central v28</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23314d6c'/><text x='50%' y='65%' font-size='42' font-family='sans-serif' font-weight='900' fill='%23ffffff' text-anchor='middle'>AUBA</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -314,10 +315,10 @@
 
     <header>
         <img src="logo_auba.png" alt="Auba" class="logo-img">
-        <h1>Solicitud de Formación</h1>
-        <p>Seleccione las novedades de su interés y le contactaremos para agendar la sesión.</p>
+        <h1>Solicitud de Formación Personalizada</h1>
+        <p>Aparte de la demo general gratuita de 30 minutos, puede solicitar una formación personalizada detallada. Seleccione los temas de su interés para que preparemos una propuesta a medida para su equipo.</p>
         <!-- Enlace Soporte AS -->
-        <a href="mailto:support@aubadcs.com" class="support-badge" title="Contactar con Soporte">
+        <a href="https://aubadcs.com" target="_blank" class="support-badge" title="Visitar Web de Auba">
             <div class="as-logo">AS</div>
             <div class="support-text-container">
                 <span class="support-title">Auba Soporte</span>
@@ -566,8 +567,7 @@
 
                 <!-- Pie del formulario discreto y elegante -->
                 <div class="disclaimer">
-                    * Nota informativa sobre la formación: Las sesiones tendrán una **duración máxima total de 30 minutos** y serán de carácter estrictamente informativo. <br>
-                    <strong>Aviso importante:</strong> Para garantizar la calidad y el tiempo máximo fijo, cuantos más temas seleccione usted, más resumidas y dinámicas deberán ser las explicaciones de cada punto.
+                    Aparte de la demo de 30 minutos (completamente gratuita) en la que repasaremos rápidamente todas las novedades generales, si su equipo requiere de una sesión de formación técnica o personalizada más detallada sobre temas específicos, puede seleccionar en la lista superior los puntos de su interés para que preparemos una propuesta de formación a medida centrada en dichos puntos.
                 </div>
             </form>
         </div>
@@ -642,7 +642,7 @@
             bodyContent += `Nombre: ${clientName}\n`;
             bodyContent += `Empresa: ${companyName}\n`;
             bodyContent += `Correo: ${clientEmail}\n\n`;
-            bodyContent += `Temas seleccionados para la sesión (Máx. 30 min):\n`;
+            bodyContent += `Temas seleccionados para la sesión de formación:\n`;
             bodyContent += `-------------------------\n`;
             
             selectedNovedades.forEach((item, index) => {
@@ -650,7 +650,7 @@
             });
             
             bodyContent += `\n-------------------------\n`;
-            bodyContent += `Nota del cliente aceptada: Duración máxima fija de 30 minutos informativos en total.\n\n`;
+            bodyContent += `Nota: Solicitud de propuesta para sesión de formación técnica personalizada sobre los temas indicados.\n\n`;
             bodyContent += `Por favor, pónganse en contacto con el cliente para agendar la reunión.\n\n`;
             bodyContent += `Saludos,\n`;
             bodyContent += `${clientName}`;
